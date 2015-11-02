@@ -1,0 +1,10 @@
+<h3>Artista: <%= @artist.username %></h3>
+
+<p>País: <%= @artist.country %></p>
+
+<p><%= @artist.about %></p>
+
+<p>
+    <%= link_to "Editar perfil", edit_artist_path(@artist) %>|
+    <%= link_to "Home", root_path %>
+</p>

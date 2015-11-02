@@ -1,0 +1,109 @@
+
+input,
+label,
+textarea {
+display: block;
+}
+
+.erro {
+color: black;
+text-align: center;
+font-weight: bold;
+}
+
+.sucesso {
+color: red;
+font-size: 2em;
+}
+::-webkit-input-placeholder {
+  position: relative;
+  -webkit-transform: translate(0, 0);
+  transition: all 0.2s ease-in-out;
+}
+
+::-webkit-input-placeholder:hover{
+cursor:text;
+}
+
+::-webkit-input-placeholder[style*=hidden] {
+  font-weight: 700;
+  font-size: 0.65em;
+  -webkit-transform: translate(0, -1.65em);
+  opacity: 1;
+  visibility: visible !important;
+  width:400px;
+}
+
+
+
+::-webkit-input-placeholder {
+background:#eaeaea;
+color:#484848;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+
+background:#eaeaea;
+color:#484848;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+
+background:#eaeaea;
+color:#484848;
+}
+
+:-ms-input-placeholder {
+
+background:#eaeaea;
+color:#484848;
+}
+
+input:-webkit-autofill {
+-webkit-box-shadow: 0 0 0 1000px #eaeaea inset;
+color:#484848 !important;
+}
+
+.que_bom{
+margin-top:20px;
+font-size:2.5em;
+}
+
+
+button{
+margin-top: 10px;
+width:105px;
+color:#484848;
+padding:10px;
+text-align:center;
+cursor:pointer;
+-webkit-transition: all 3.2s ease;
+-moz-transition: all 3.2s ease;
+-ms-transition: all 3.2s ease;
+-o-transition: all 3.2s ease;
+transition: all 3.2s ease;
+border:0;
+}
+button:hover{
+background:black;
+color:white;
+}
+
+textarea{
+resize:none;
+}
+
+a{
+text-decoration: none;
+color:white;
+}
+
+.go {
+font-size: 20px;
+cursor: pointer;
+background-color:#eaeaea;
+width:160px;
+height:60px;
+color:#484848;
+border:1px solid #484848;
+}

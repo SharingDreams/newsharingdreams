@@ -1,0 +1,61 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "materialize";
+
+
+ .image-container{
+ 	text-align:center;
+ }
+ .image-container img{
+ 	width: 150px;
+     height: 150px;
+     border-radius: 500px;
+ }
+ .institutes-img{
+ 	max-width: 150px;
+     max-height: 50px;
+ }
+ a.btn:hover{
+ 	text-decoration:none;
+ 	color:white;
+ }
+
+ #about{
+ 	background:url('http://sharingdreams.co/artes/a9eb7d8474ebfe6dc1ca1446e1377837.JPG') no-repeat center bottom fixed;
+ 	-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
+ }
+
+ .txtg_index{
+ 	text-shadow: 4px 4px 40px #000000;
+ }
+
+ .donators{
+ 	display:block;
+ 	float:right;
+ 	text-align:right;
+ 	width:100%;
+ 	height:30px;
+ }
+
+ .small-ball-rounded{
+ 	width:30px;
+ 	height:30px;
+ 	background:#eee;
+ 	color:#484848;
+ 	border-radius:500px;
+ 	-webkit-border-radius:500px;
+ }

@@ -1,0 +1,52 @@
+<% if @artist.errors.any? %>
+    <ul>
+        <% @artist.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<h2>Atualização de artista:</h2>
+
+<%= form_for @artist do |f| %>
+
+    <p>
+        <%= f.label :username, "Nome de usuário" %> <br>
+        <%= f.text_field :username %>
+    </p>
+
+    <p>
+        <%= f.label :email, "Email" %> <br>
+        <%= f.text_field :email %>
+    </p>
+
+    <p>
+        <%= f.label :country, "País de origem" %> <br>
+        <%= f.text_field :country %>
+    </p>
+
+    <p>
+        <%= f.label :birthday, "Data de aniversário:" %> <br>
+        <%= f.text_field :birthday %>
+    </p>
+
+    <p>
+        <%= f.label :password, "Senha:" %> <br>
+        <%= f.password_field :password %>
+    </p>
+
+    <p>
+        <%= f.label :password_confirmation, "Confirme sua senha:" %> <br>
+        <%= f.password_field :password_confirmation %>
+    </p>
+
+    <p>
+        <%= f.label :about, "Fale sobre você:" %> <br>
+        <%= f.text_area :about %>
+    </p>
+
+    <p>
+        <%= f.submit "Atualizar!" %>
+    </p>
+
+<% end %>

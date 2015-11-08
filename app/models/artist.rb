@@ -2,7 +2,7 @@ class Artist < ActiveRecord::Base
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     VALID_BIRTHDAY_REGEX = /[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}/
 
-    validates_presence_of :username, :email, :country, :about, :birthday
+    validates_presence_of :username, :email, :country, :birthday
 
     validates_length_of :username, minimum: 2
     validates_length_of :about, minimum: 5
@@ -29,6 +29,14 @@ class Artist < ActiveRecord::Base
             rescue
                 errors.add(:birthday, "Insira uma data correta.")
             end
+        end
+    end
+
+    def self.authenticate(email, password)
+        artist = find_by(email: email)
+
+        if artist.present?
+            artist.authenticate(password)
         end
     end
 

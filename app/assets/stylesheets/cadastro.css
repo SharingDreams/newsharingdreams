@@ -70,7 +70,7 @@ font-size:2.5em;
 }
 
 
-button{
+input[type="submit"]{
 margin-top: 10px;
 width:105px;
 color:#484848;
@@ -84,7 +84,7 @@ cursor:pointer;
 transition: all 3.2s ease;
 border:0;
 }
-button:hover{
+input[type="submit"]:hover{
 background:black;
 color:white;
 }

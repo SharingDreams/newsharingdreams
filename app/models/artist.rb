@@ -3,14 +3,17 @@ class Artist < ActiveRecord::Base
     VALID_BIRTHDAY_REGEX = /[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}/
 
     validates_presence_of :username, :email, :country, :birthday
+    validates_presence_of :about, allow_blank: true
 
     validates_length_of :username, minimum: 2
-    validates_length_of :about, minimum: 5
 
     validates_format_of :email, with: VALID_EMAIL_REGEX
     validates_format_of :birthday, with: VALID_BIRTHDAY_REGEX
 
-    validates_uniqueness_of :username, :email
+    validates_uniqueness_of :username
+    validates_uniqueness_of :email
+
+    validates :password, presence: true
 
     has_secure_password
 
@@ -21,9 +24,9 @@ class Artist < ActiveRecord::Base
             begin
                 Date.parse(self.birthday)
 
-                if self.birthday.to_date > 18.years.ago.to_date
+                if self.birthday.to_date < 18.years.ago.to_date
                     errors.add(:birthday, "Você tem que ter menos de 18 anos.")
-                elsif self.birthday.to_date < 13.years.ago.to_date
+                elsif self.birthday.to_date > 13.years.ago.to_date
                     errors.add(:birthday, "Você tem que ter mais de 13 anos.")
                 end
             rescue

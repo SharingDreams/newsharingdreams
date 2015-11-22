@@ -30,6 +30,8 @@ gem "twitter-bootstrap-rails"
 gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-ui-rails'
 
+gem "paperclip", "~> 4.3"
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

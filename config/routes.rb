@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     root 'home#index'
 
     resources :artists
+    resources :arts
+
     resource :artist_sessions, only: [:create, :new, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.

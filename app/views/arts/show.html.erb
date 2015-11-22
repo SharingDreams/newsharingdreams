@@ -1,0 +1,8 @@
+<h2>Arte: <%= @art.title %></h2>
+
+<p><%= image_tag @art.image.url(:large) %></p>
+
+<p>
+      <%= link_to 'Apagar arte', art_path, :method => :delete, data: { confirm: "Têm certeza disso?" } %>|
+      <%= link_to 'Editar arte', edit_art_path(@art.id) %>
+</p>

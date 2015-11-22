@@ -1,0 +1,14 @@
+<h3>Cadastre sua arte!</h3>
+
+<%= form_for @art, html: { multipart: true } do |f| %>
+
+    <p>
+         <%= f.text_field :title, placeholder: "Titulo" %>
+         <%= error_field @art, :title %>
+    </p>
+
+    <p><%= f.file_field :image %></p>
+
+    <p><%= f.submit "Criar arte!" %></p>
+
+<% end %>

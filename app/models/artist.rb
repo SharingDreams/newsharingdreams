@@ -35,8 +35,8 @@ class Artist < ActiveRecord::Base
         end
     end
 
-    def self.authenticate(email, password)
-        artist = find_by(email: email)
+    def self.authenticate(username, password)
+        artist = find_by(username: username)
 
         if artist.present?
             artist.authenticate(password)

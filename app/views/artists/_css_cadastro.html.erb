@@ -137,4 +137,39 @@ height:60px;
 color:#484848;
 border:1px solid #484848;
 }
+
+input,
+label,
+textarea {
+display: block;
+}
+
+.erro {
+color: black;
+text-align: center;
+font-weight: bold;
+}
+
+.sucesso {
+color: red;
+font-size: 2em;
+}
+::-webkit-input-placeholder {
+  position: relative;
+  -webkit-transform: translate(0, 0);
+  transition: all 0.2s ease-in-out;
+}
+
+::-webkit-input-placeholder:hover{
+cursor:text;
+}
+
+::-webkit-input-placeholder[style*=hidden] {
+  font-weight: 700;
+  font-size: 0.65em;
+  -webkit-transform: translate(0, -1.65em);
+  opacity: 1;
+  visibility: visible !important;
+  width:400px;
+}
 </style>

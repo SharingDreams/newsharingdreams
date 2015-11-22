@@ -1,23 +1,60 @@
-<% if @arts.count == 0 %>
-    <h3>Não possuímos nenhuma arte até o momento!</h3>
-<% elsif @arts.count == 1 %>
+<div class='top'>
+    <div class='logo'>
+        <a href='/gallery'><img src='http://sharingdreams.hol.es/assets/img/logo.png' class='logo_img'></a>
+    </div>
+    <ul class='menu_list'>
+        <li><a href='/about.php' id='menu'>About</a></li>
+        <li><a href='/join' id='menu'>Join</a></li>
+        <li><a href='/login' id='menu'>Login</a></li>
+    </ul>
+</div>
 
-    <h3>Possuimos 1 arte até o momento</h3>
+<div style="height:20px;"></div>
+<form method="GET">
+    <center>
+        <input type="text" name="q" id="search" placeholder="Find someone to help">
+        <button type="submit" class="search-button-after" style="cursor: pointer"></button>
+    </center>
+</form>
 
-    <% @arts.each do |art| %>
-        <p>Titulo: <%= art.title %></p>
-        <p><%= image_tag art.image.url(:medium) %></p>
-        <p>Criada há <%= time_ago_in_words(art.created_at) %> atrás</p>
+<div class="gallery">
+    <% if @arts.count == 0 %>
+        <h3>Não possuímos nenhuma arte até o momento!</h3>
+    <% else %>
+        <ol class="gallery_ol">
+            <% @arts.each do |art| %>
+                <li align="center" class="art_li">
+                    <div class="view view-fifth">
+                        <a href="/art/<?php echo $arte_nome_id; ?>/<?php echo $arte['id']; ?>0">
+                            <%= image_tag art.image.url(:medium), class: "art_img_src" %>
+                        </a>
+
+                        <div class="mask">
+                            <center>
+                                <br>Did you like it?
+                                <br>
+                                <a href="" style="margin-top:15px;" class="donate">
+                                    See more
+                                </a>
+                                <div style="height:5px;"></div>
+                            </center>
+
+                            <a href=''><img src="assets/img/sem-foto.png" class="img-author" style="position:absolute; width:41px; height:41px;"></a>
+
+                            <a href=''>
+                                <p class="name-art"  style="position:absolute;">
+                                    "<%= art.title %>"
+                                </p>
+                            </a>
+                            <a href=''>
+                                <p class="name-author"  style="position:absolute;">
+                                    Nome autor
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            <% end %>
+        </ol>
     <% end %>
-
-<% else %>
-    <h3>Possuimos <%= @arts.count %> artes até o momento</h3>
-
-    <% @arts.each do |art| %>
-        <p><%= art.title %></p>
-        <p><%= image_tag art.image.url(:medium) %></p>
-        <p>Criada há <%= time_ago_in_words(art.created_at) %> atrás</p>
-        <hr>
-    <% end %>
-
-<% end %>
+</div>

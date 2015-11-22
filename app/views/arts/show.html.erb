@@ -1,6 +1,97 @@
-<h2>Arte: <%= @art.title %></h2>
+<style>
+    .middle{
+        background:url('<%=  @art.image.url(:large) %>') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        height:480px;
+    }
+    .full_art_all{
+        display: inline-block;
+        width: 465px;
+        background: #e5e5e5 url('<%= @art.image.url(:large) %>') no-repeat center center;
+        background-size:auto 300px;
+        height:300px;
+    }
+    @media(max-width: 329px){
+        .full_art_all{
+            width: 300px;
+            height:180px;
+        }
+    }
+    @media(min-width: 330px) and (max-width:389px) {
+        .full_art_all{
+            width: 300px;
+            height:200px;
+        }
+    }
+    @media(min-width: 390px) and (max-width:500px) {
+        .full_art_all{
+            width: 340px;
+            height:240px;
+        }
+    }
+</style>
 
-<p><%= image_tag @art.image.url(:large) %></p>
+<div class='top'>
+    <div class='logo'>
+        <a href='/gallery'><img src='http://sharingdreams.co/assets/img/logo.png' class='logo_img'></a>
+    </div>
+    <ul class='menu_list'>
+        <li><a href='/about.php' id='menu'>About</a></li>
+        <li><a href='/join' id='menu'>Join</a></li>
+        <li><a href='/login' id='menu'>Login</a></li>
+    </ul>
+</div>
+
+<div class="middle" id="art_page">
+    <div class="hr"></div>
+</div>
+<div style="height:20px;"></div>
+
+<div class="info_art">
+	<a href='/conta.php?user=<?php echo $usuario_artista; ?>'><img src="/assets/img/sem-foto.png" width="60px" height="60px" class="author-image"></a>
+
+	<div class="art_name">
+        <%= @art.title %>
+    </div>
+
+    <div class="author_name">
+        by <a href='' id="menu">Autor</a>
+    </div>
+
+    <div class="amount">
+	    <div class="amount_dollar">
+	        $0
+	    </div>
+	    donated
+	</div>
+	<br>
+
+	<center>
+		<div class="art">
+			<a href="/artes/<?php echo $arte['nome']; ?>" data-lightbox="image-1" data-title="">
+	            <div class="full_art_all">
+	            </div>
+	        </a>
+
+	        <div class="about_donate">
+                <div class="why">
+                    About donate
+                </div>
+                <p style"text-indent: 10px;" style=" margin-top:5px;" class="about_donate_text">
+                    It's not about dollars. It's a deposit of hope for a better world. All the money collected is distribuited weekly for many charity institutions and also for the artist.<br>
+                    <a href="/">Read more here</a>
+                </p>
+                <a class="waves-effect waves-light btn modal-trigger" id="aboutbtn" href="#modal1">Donators list</a><br>    
+            </div>
+            <br><br>
+		</div>
+		<br>
+	</center>
+
+</div>
 
 <p>
       <%= link_to 'Apagar arte', art_path, :method => :delete, data: { confirm: "Têm certeza disso?" } %>|

@@ -1,14 +1,147 @@
-<h3>Cadastre sua arte!</h3>
+<style type="text/css">
+	#jquery-script-menu {
+		position: fixed;
+		height: 90px;
+		width: 100%;
+		top: 0;
+		left: 0;
+		border-top: 5px solid #316594;
+		background: #fff;
+		-moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+		-webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+		box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+		z-index: 999999;
+		padding: 10px 0;
+		-webkit-box-sizing:content-box;
+		-moz-box-sizing:content-box;
+		box-sizing:content-box;
+	}
 
-<%= form_for @art, html: { multipart: true } do |f| %>
+	.jquery-script-center {
+		width: 960px;
+		margin: 0 auto;
+	}
+	.jquery-script-center ul {
+		width: 212px;
+		float:left;
+		line-height:45px;
+		margin:0;
+		padding:0;
+		list-style:none;
+	}
+	.jquery-script-center a {
+		text-decoration:none;
+	}
+	.jquery-script-ads {
+		width: 728px;
+		height:90px;
+		float:right;
+	}
+	.jquery-script-clear {
+		clear:both;
+		height:0;
+	}
 
-    <p>
-         <%= f.text_field :title, placeholder: "Titulo" %>
-         <%= error_field @art, :title %>
-    </p>
+	body {
+	    font-family:'Lato', sans-serif;
+	}
+	.middle {
+	    background:#ececec;
+	    height:355px;
+	    text-align: center;
+	}
+	.simple_input {
+	    font-family:'Lato', sans-serif;
+	    position: relative;
+	    margin-top: -145px;
+	}
+	.txtg {
+	    font-size:36px;
+	    margin-top:135px;
+	}
+	a.gotoglr {
+	    margin-left:20px;
+	    color:#484848;
+	    text-decoration:none;
+	}
+	a.gotoglr:hover {
+	    text-decoration: underline;
+	    color:#484848;
+	}
+	p.txtup {
+	    font-size:24px;
+	    margin-top:25px;
+	}
+	.Editor-container {
+	    width:80% !important;
+	}
+	.top{
+	    font-family: 'Open Sans', sans-serif !important;
+	}
+</style>
 
-    <p><%= f.file_field :image %></p>
+<div class="top tp_marginlg">
+    <div class="logo">
+        <a href='/gallery'><img src="assets/img/logo.png" class="logo_img"></a>
+    </div>
+    <ul class="menu_list">
+    	<li><a style="color: #27AE60;" href="/withdraw" id="menu">Withdraw $5</a></li>
+        <li><a href="/gallery" id="menu">Gallery</a></li>
+        <li id="menu"><a href='/editProfile' id='menu'>Settings</a></li>
+        <li><a href="deslogar.php" id="menu">Logout</a>
+            <li>
+                <a href="/conta.php?user=>"><img id="img-ok" class="perfil_img_menu absolute" src="./assets/img/sem-foto.png" width="50px" height="50px" style="-webkit-border-radius:500; -moz-border-radius: 500px; border-radius: 500px; float:right; margin-top:-20px;"></a>
+            </li>
+        </li>
+    </ul>
+</div>
 
-    <p><%= f.submit "Criar arte!" %></p>
 
+<%= form_for @art, html: { multipart: true, id: "form_upload_art" } do |f| %>
+	<div class="middle" id="art_page">
+		<div class="hr"></div>
+		<div class="txtg t_submit">Click to select your art.</div>
+	</div>
+
+	<center class="center_submit">
+		<%= f.text_field :title, placeholder: "Type here the title", class: "simple_input", id: "input_nome_arte" %>
+
+        <%= f.file_field :image, id: "file-upload", style: "display:none;" %>
+
+      	<%= f.submit "Criar arte!", class: "upload_button", id: "submit_btn_art" %>
+
+        <div style="height:50px;"></div>
+	</center>
 <% end %>
+
+ <script>
+    $(document).ready(function() {
+        $("#file-upload").change(function() {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    // faz as paradas
+                    $('.middle').css('background', 'url(' + e.target.result + ')' + 'no-repeat center center fixed');
+                    $('.middle').css('-webkit-background-size', 'cover');
+                    $('.middle').css('-moz-background-size', 'cover');
+                    $('.middle').css('-o-background-size', 'cover');
+                    $('.middle').css('background-size', 'cover');
+                    $('.txtg').html("");
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+
+        $(".middle").click(function() {
+            $("#file-upload").trigger("click");
+        });
+
+         $("#form_upload_art").on('submit', function (e) {
+            e.preventDefault();
+            $("#descricao-arte").val($(".editable").Editor("getText"));
+            $(this).off('submit');
+            this.submit();
+        });
+    });
+        
+</script>

@@ -1,3 +1,5 @@
+<%= render 'artists/css_cadastro' %>
+
 <div class="top">
     <div class="logo">
         <a href='/gallery'><img src="assets/img/logo.png" class="logo_img"></a>
@@ -10,6 +12,7 @@
 </div>
 
 <div class="hr"></div>
+
 <center>
     <span><strong>
     <% if @artist_session.errors.has_key? :base %>
@@ -22,7 +25,7 @@
     <%= form_for @artist_session do |f| %>
         <fieldset class="fieldLogin">
             <label>
-                <%= f.text_field :email, id: "usernameLogin", placeholder: "Username" %>
+                <%= f.text_field :username, id: "usernameLogin", placeholder: "Username" %>
             </label>
 
             <label>

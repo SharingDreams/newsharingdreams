@@ -1,4 +1,7 @@
 class Artist < ActiveRecord::Base
+
+    extend FriendlyId
+
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     VALID_BIRTHDAY_REGEX = /[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}/
 
@@ -18,6 +21,8 @@ class Artist < ActiveRecord::Base
     has_secure_password
 
     validate :date_of_birthday
+
+    friendly_id :username, use: [:slugged, :history]
 
     def date_of_birthday
         if self.birthday

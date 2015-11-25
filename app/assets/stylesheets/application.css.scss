@@ -59,3 +59,24 @@
  	border-radius:500px;
  	-webkit-border-radius:500px;
  }
+
+.pagination
+{ 
+	background: white;
+	box-shadow: none;
+
+	span {
+		font-family:'Open Sans', sans-serif;
+	    display:inline-block;
+	    width:28px;
+	    background-color: #eaeaea;
+	    border: 1px solid #d4d4d4;
+	    font-size: 18px;
+	    color: #555555;
+	    padding-top:8px;
+	    padding-bottom:8px;
+	    margin-left:3px;
+	    margin-right:3px;
+	    text-align: center;
+    }
+}

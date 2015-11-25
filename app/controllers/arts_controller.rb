@@ -1,6 +1,6 @@
 class ArtsController < ApplicationController
     def index
-        @arts = Art.all.order("created_at DESC")
+        @arts = Art.all.order("created_at DESC").page(params[:page]).per(1)
     end
 
     def new
@@ -18,15 +18,15 @@ class ArtsController < ApplicationController
     end
 
     def show
-        @art = Art.find(params[:id])
+        @art = Art.friendly.find(params[:id])
     end
 
     def edit
-        @art = Art.find(params[:id])
+        @art = Art.friendlyfind(params[:id])
     end
 
     def update
-        @art = Art.find(params[:id])
+        @art = Art.friendlyfind(params[:id])
 
         if @art.update(art_params)
             redirect_to @art, notice: "Arte atualizada com sucesso!"
@@ -36,7 +36,7 @@ class ArtsController < ApplicationController
     end
 
     def destroy
-        @art = Art.find(params[:id])
+        @art = Art.friendlyfind(params[:id])
         @art.destroy
         redirect_to root_path, notice: "Arte deletada com sucesso!"
     end

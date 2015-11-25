@@ -206,20 +206,7 @@
                 position: absolute;
                 border-left: none;
             }
-            .page-button{
-                font-family:'Open Sans', sans-serif;
-                display:inline-block;
-                width:28px;
-                background-color: #eaeaea;
-                border: 1px solid #d4d4d4;
-                font-size: 18px;
-                color: #555555;
-                padding-top:8px;
-                padding-bottom:8px;
-                margin-left:3px;
-                margin-right:3px;
-                text-align: center;
-            }
+
             .stroke-page{
                 border-color:#969696;
             }

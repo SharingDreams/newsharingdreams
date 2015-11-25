@@ -26,6 +26,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'materialize-sass'
 gem "twitter-bootstrap-rails"
 
+gem "friendly_id", '5.0.3'
+
+gem 'kaminari'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-ui-rails'

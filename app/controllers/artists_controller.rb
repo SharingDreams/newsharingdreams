@@ -20,15 +20,15 @@ class ArtistsController < ApplicationController
     end
 
     def show
-        @artist = Artist.find(params[:id])
+        @artist = Artist.friendlyfind(params[:id])
     end
 
     def edit
-        @artist = Artist.find(params[:id])
+        @artist = Artist.friendlyfind(params[:id])
     end
 
     def update
-        @artist = Artist.find(params[:id])
+        @artist = Artist.friendlyfind(params[:id])
 
         if @artist.update(artist_params)
             redirect_to @artist, notice: "Artista editado com sucesso!"
@@ -50,7 +50,7 @@ class ArtistsController < ApplicationController
     end
 
     def artist
-        @artist ||= Artist.find(params[:id])
+        @artist ||= Artist.friendlyfind(params[:id])
     end
 
 end

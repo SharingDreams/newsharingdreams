@@ -1,14 +1,17 @@
 class ArtsController < ApplicationController
+    before_action :require_authentication_artist, only: [:new, :create, :edit, :update, :destroy, :show]
+    before_action :can_edit, only: [:edit, :update]
+
     def index
         @arts = Art.all.order("created_at DESC").page(params[:page]).per(9)
     end
 
     def new
-        @art = Art.new
+        @art= current_artist.arts.build
     end
 
     def create
-        @art = Art.new(art_params)
+        @art = current_artist.arts.build(art_params)
 
         if @art.save
             redirect_to @art, notice: "Arte criada com sucesso!"
@@ -22,11 +25,11 @@ class ArtsController < ApplicationController
     end
 
     def edit
-        @art = Art.friendlyfind(params[:id])
+        @art = current_citizen.arts.friendly.find(params[:id])
     end
 
     def update
-        @art = Art.friendlyfind(params[:id])
+        @art = current_citizen.arts.friendly.find(params[:id])
 
         if @art.update(art_params)
             redirect_to @art, notice: "Arte atualizada com sucesso!"
@@ -45,5 +48,15 @@ class ArtsController < ApplicationController
 
     def art_params
         params.require(:art).permit(:title, :image)
+    end
+
+    def can_edit
+        unless artist_signed_in? && art.artist == current_rtist
+            redirect_to art_path(params[:id])
+        end
+    end
+
+    def art
+        @art ||= Art.friendly.find(params[:id])
     end
 end

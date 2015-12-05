@@ -1,6 +1,7 @@
 class Art < ActiveRecord::Base
+    belongs_to :artist
 
-	extend FriendlyId
+    extend FriendlyId
 
     validates_presence_of :title, :image
 

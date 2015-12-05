@@ -1,4 +1,5 @@
 class Artist < ActiveRecord::Base
+    has_many :arts
 
     extend FriendlyId
 

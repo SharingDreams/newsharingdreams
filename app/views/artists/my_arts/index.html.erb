@@ -1,0 +1,13 @@
+<% if @artist_arts.count == 0 %>
+    <p>Você não tem artes até o momento</p>
+<% else %>
+    <% if @artist_arts.count == 1 %>
+        <p><%= @artist_arts.count %> arte:</p>
+    <% else %>
+        <p><%= @artist_arts.count %> artes:</p>
+    <% end %>
+    <% @artist_arts.each do |art| %>
+        <p><%= link_to art.title, art %></p>
+        <hr>
+    <% end %>
+<% end %>

@@ -31,6 +31,8 @@
         <% if artist_signed_in? %>
             <ul class="menu_list" id='menu-margin'>
                 <li><%= link_to "Logout", artist_sessions_path, method: "delete" %></li>
+                <li><%= link_to "Minhas artes", artist_my_arts_path(current_artist) %></li>
+                <li><%= link_to "Nova arte", new_art_path %></li>
             </ul>
         <% else %>
             <ul class="menu_list" id='menu-margin'>

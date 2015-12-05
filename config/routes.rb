@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
     root 'home#index'
 
-    resources :artists
+    resources :artists do
+      resources :my_arts, only: [:index], module: :artists
+    end
     resources :arts
 
     resource :artist_sessions, only: [:create, :new, :destroy]

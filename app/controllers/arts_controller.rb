@@ -1,6 +1,6 @@
 class ArtsController < ApplicationController
     def index
-        @arts = Art.all.order("created_at DESC").page(params[:page]).per(1)
+        @arts = Art.all.order("created_at DESC").page(params[:page]).per(9)
     end
 
     def new

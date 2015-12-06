@@ -3,7 +3,13 @@ class ArtsController < ApplicationController
     before_action :can_edit, only: [:edit, :update]
 
     def index
-        @arts = Art.all.order("created_at DESC").page(params[:page]).per(9)
+        if params[:q].blank?
+            @arts = Art.all.order("created_at DESC").page(params[:page]).per(9)
+        else
+            @search = params[:q]
+            arts_searched = Art.search(@search)
+            @arts = arts_searched.all.order("created_at DESC").page(params[:page]).per(9)
+        end
     end
 
     def new

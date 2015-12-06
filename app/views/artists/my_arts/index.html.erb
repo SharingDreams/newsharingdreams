@@ -1,5 +1,14 @@
+<center>
+    <%= form_tag artist_my_arts_path, method: :get do %>
+        <%= text_field_tag :q, @search, placeholder: "Ache alguma arte!" %>
+    <% end %>
+</center>
 <% if @artist_arts.count == 0 %>
-    <p>Você não tem artes até o momento</p>
+    <% if params[:q].blank? %>
+        <p>Você não tem artes até o momento!</p>
+    <% else %>
+        <p>Não achamos nenhuma arte com o termo de pesquisa!</p>
+    <% end %>
 <% else %>
     <% if @artist_arts.count == 1 %>
         <p><%= @artist_arts.count %> arte:</p>

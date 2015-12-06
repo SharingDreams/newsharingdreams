@@ -1,8 +1,15 @@
 class Artists::MyArtsController < ApplicationController
     def index
-        artist = Artist.friendly.find(params[:artist_id])
+        if params[:q].blank?
+            artist = Artist.friendly.find(params[:artist_id])
+            @artist_arts = artist.arts.all.order("created_at DESC")
+        else
+            @search = params[:q]
+            artist = Artist.friendly.find(params[:artist_id])
+            arts_searched = artist.arts.search(@search)
+            @artist_arts = arts_searched.all.order("created_at DESC").page(params[:page]).per(9)
+        end
 
-        @artist_arts = artist.arts.all.order("created_at DESC")
     end
 
     private

@@ -11,4 +11,12 @@ class Art < ActiveRecord::Base
     validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
     friendly_id :title, use: [:slugged, :history]
+
+    def self.search(query)
+        if query.present?
+            where(['title LIKE :query', query: "%#{query}%"])
+        else
+            all
+        end
+    end
 end

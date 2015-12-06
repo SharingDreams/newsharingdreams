@@ -1,14 +1,19 @@
 <div style="height:20px;"></div>
 <form method="GET">
     <center>
-        <input type="text" name="q" id="search" placeholder="Find someone to help">
-        <button type="submit" class="search-button-after" style="cursor: pointer"></button>
+        <%= form_tag arts_path, method: :get do %>
+            <%= text_field_tag :q, @search, placeholder: "Ache alguma arte!" %>
+        <% end %>
     </center>
 </form>
 
 <div class="gallery">
     <% if @arts.count == 0 %>
-        <h3>Não possuímos nenhuma arte até o momento!</h3>
+        <% if params[:q].blank? %>
+            <h3>Não possuímos nenhuma arte até o momento!</h3>
+        <% else %>
+            <h3>Não achamos nenhuma arte com o termo de pesquisa!</h3>
+        <% end %>
     <% else %>
         <ol class="gallery_ol">
             <% @arts.each do |art| %>

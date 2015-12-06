@@ -4,11 +4,11 @@ class ArtsController < ApplicationController
 
     def index
         if params[:q].blank?
-            @arts = Art.all.order("created_at DESC").page(params[:page]).per(9)
+            @arts = Art.all.order("created_at DESC").where(approved: 1).page(params[:page]).per(9)
         else
             @search = params[:q]
             arts_searched = Art.search(@search)
-            @arts = arts_searched.all.order("created_at DESC").page(params[:page]).per(9)
+            @arts = arts_searched.order("created_at DESC").where(approved: 1).page(params[:page]).per(9)
         end
     end
 

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     root 'home#index'
 
     resources :artists do
-      resources :my_arts, only: [:index], module: :artists
+      resources :arts, only: [:index], module: :artists
     end
     resources :arts
 

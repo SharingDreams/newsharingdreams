@@ -1,0 +1,51 @@
+<center>
+    <%= form_tag artist_arts_path, method: :get do %>
+        <%= text_field_tag :q, @search, placeholder: "Ache alguma arte!", id: "search" %>
+        <%= button_tag(type: 'submit', class: "search-button-after") %>
+    <% end %>
+</center>
+
+<% if @artist_arts.count == 0 %>
+    <% if params[:q].blank? %>
+        <p>Você não tem artes até o momento!</p>
+    <% else %>
+        <p>Não achamos nenhuma arte com o termo de pesquisa!</p>
+    <% end %>
+<% else %>
+    <ol class="gallery_ol">
+        <center><h4>Artes do artista <%= @artist.username %></h4></center>
+        <% @artist_arts.each do |art| %>
+            <li align="center" class="art_li">
+                <div class="view view-fifth">
+                    <a href="/art/<?php echo $arte_nome_id; ?>/<?php echo $arte['id']; ?>0">
+                        <%= image_tag art.image.url(:medium), class: "art_img_src" %>
+                    </a>
+
+                    <div class="mask">
+                        <center>
+                            <br>Did you like it?
+                            <br>
+                            <a href="" style="margin-top:15px;" class="donate">
+                                See more
+                            </a>
+                            <div style="height:5px;"></div>
+                        </center>
+
+                        <a href=''><img src="assets/img/sem-foto.png" class="img-author" style="position:absolute; width:41px; height:41px;"></a>
+
+                        <a href=''>
+                            <p class="name-art"  style="position:absolute;">
+                                "<%= art.title %>"
+                            </p>
+                        </a>
+                        <a href=''>
+                            <p class="name-author"  style="position:absolute;">
+                                Nome autor
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </li>
+        <% end %>
+    </ol>
+<% end %>

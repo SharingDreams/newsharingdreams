@@ -1,8 +1,10 @@
 <div style="height:20px;"></div>
+
 <form method="GET">
     <center>
         <%= form_tag arts_path, method: :get do %>
-            <%= text_field_tag :q, @search, placeholder: "Ache alguma arte!" %>
+            <%= text_field_tag :q, @search, placeholder: "Ache alguma arte!", id: "search" %>
+            <%= button_tag(type: 'submit', class: "search-button-after") %><%= button_tag(type: 'submit', class: "search-button-after") %>
         <% end %>
     </center>
 </form>

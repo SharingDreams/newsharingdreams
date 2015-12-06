@@ -1,52 +1,62 @@
-<% if @artist.errors.any? %>
-    <ul>
-        <% @artist.errors.full_messages.each do |error| %>
-            <li><%= error %></li>
-        <% end %>
-    </ul>
-<% end %>
+<%= render 'css_cadastro' %>
 
-<h2>Atualização de artista:</h2>
+<div class="hr"></div>
+<div class='form' style="text-align:center;">
 
-<%= form_for @artist do |f| %>
+<style>
+    .botoes {
+        display: inline-block;
+        margin-bottom: 10px;
+        margin-left: 8px;
+    }
+    
+    .editar {
+        background-color: green;
+        color: white;
+    }
 
-    <p>
-        <%= f.label :username, "Nome de usuário" %> <br>
-        <%= f.text_field :username %>
-    </p>
+    .cancelar {
+        color: black;
+        background-color: gray;
+        padding: 10px;
+        text-decoration: none;
+    }
+</style>
 
-    <p>
-        <%= f.label :email, "Email" %> <br>
-        <%= f.text_field :email %>
-    </p>
+<center>
+    <div style="height:30px;"></div>
 
-    <p>
-        <%= f.label :country, "País de origem" %> <br>
-        <%= f.text_field :country %>
-    </p>
+    <%= form_for @artist do |f| %>
+        <label>
+            <%= f.text_field :username, id: "usernameLogin" %>
+            <%= error_field @artist, :username %>
+        </label>
 
-    <p>
-        <%= f.label :birthday, "Data de aniversário:" %> <br>
-        <%= f.text_field :birthday %>
-    </p>
+        <label>
+            <%= f.text_field :email, id: "usernameLogin" %>
+            <%= error_field @artist, :email %>
+        </label>
 
-    <p>
-        <%= f.label :password, "Senha:" %> <br>
-        <%= f.password_field :password %>
-    </p>
+        <label>
+            <%= f.text_field :birthday, class: "datepicker", id: "usernameLogin", placeholder: "Birthday: mm/dd/yyyy" %>
+            <%= error_field @artist, :birthday %>
+        </label>
 
-    <p>
-        <%= f.label :password_confirmation, "Confirme sua senha:" %> <br>
-        <%= f.password_field :password_confirmation %>
-    </p>
+        <label>
+            <%= f.text_area :about, placeholder: "Tell us about you! (optional)" %>
+        </label>
 
-    <p>
-        <%= f.label :about, "Fale sobre você:" %> <br>
-        <%= f.text_area :about %>
-    </p>
+        <label>
+            <%= f.password_field :password, placeholder: "Type here your new password", id: "usernameLogin" %>
+            <%= error_field @artist, :password %>
+        </label>
 
-    <p>
-        <%= f.submit "Atualizar!" %>
-    </p>
+        <label>
+            <%= f.password_field :password_confirmation, placeholder: "Type here your new password again!", id: "usernameLogin" %>
+            <%= error_field @artist, :password_confirmation %>
+        </label>
 
-<% end %>
+        <p class='botoes cancelar'><a href="http://sharingdreams.co/gallery">Cancel</a></p>
+        <%= f.submit "Atualizar!", class: 'botoes editar' %>
+    <% end %>
+</center>

@@ -80,23 +80,6 @@
 	}
 </style>
 
-<div class="top tp_marginlg">
-    <div class="logo">
-        <a href='/gallery'><img src="assets/img/logo.png" class="logo_img"></a>
-    </div>
-    <ul class="menu_list">
-    	<li><a style="color: #27AE60;" href="/withdraw" id="menu">Withdraw $5</a></li>
-        <li><a href="/gallery" id="menu">Gallery</a></li>
-        <li id="menu"><a href='/editProfile' id='menu'>Settings</a></li>
-        <li><a href="deslogar.php" id="menu">Logout</a>
-            <li>
-                <a href="/conta.php?user=>"><img id="img-ok" class="perfil_img_menu absolute" src="./assets/img/sem-foto.png" width="50px" height="50px" style="-webkit-border-radius:500; -moz-border-radius: 500px; border-radius: 500px; float:right; margin-top:-20px;"></a>
-            </li>
-        </li>
-    </ul>
-</div>
-
-
 <%= form_for @art, html: { multipart: true, id: "form_upload_art" } do |f| %>
 	<div class="middle" id="art_page">
 		<div class="hr"></div>

@@ -34,29 +34,6 @@
     }
 </style>
 
-<div class='top'>
-    <div class='logo'>
-        <a href='/gallery'><img src='http://sharingdreams.co/assets/img/logo.png' class='logo_img'></a>
-    </div>
-    <% if artist_signed_in? %>
-        <ul class="menu_list" id='menu-margin'>
-            <li><%= link_to "Logout", artist_sessions_path, method: "delete" %></li>
-            <li><%= link_to "Minhas artes", artist_my_arts_path(current_artist) %></li>
-            <li><%= link_to "Nova arte", new_art_path %></li>
-        </ul>
-    <% else %>
-        <ul class="menu_list" id='menu-margin'>
-            <li id="about_li"><a href="/about.php" id="menu">About</a></li>
-            <li>
-                <%= link_to "Join", new_artist_path, id: "menu" %>
-            </li>
-            <li><%= link_to "Login", new_artist_sessions_path, id: "menu" %></li>
-        </ul>
-    <% end %>
-</div>
-
-
-
 <div class="middle" id="art_page">
     <div class="hr"></div>
 </div>
@@ -100,14 +77,18 @@
             </div>
             <br><br>
 		</div>
-		<br>
+
+        <div class="hr"></div>
+
+        <div class="more_of">
+            <% if @artist_arts.count == 0 %>
+            <% else %>
+            <br><br>More of <%= @art.artist.username %><br>
+		          <% @artist_arts.each do |art| %>
+                        <%= image_tag art.image.url(:medium), class: "more_of_art" %>
+                    <% end %>
+            <% end %>
+        </div>
+        <div style="height:40px;"></div>
 	</center>
-
 </div>
-
-<% if current_artist == @art.artist %>
-    <p>
-          <%= link_to 'Apagar arte', art_path, :method => :delete, data: { confirm: "Têm certeza disso?" } %>|
-          <%= link_to 'Editar arte', edit_art_path(@art.id) %>
-    </p>
-<% end %>

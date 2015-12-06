@@ -1,15 +1,4 @@
 <%= render 'css_cadastro' %>
-
-<div class="top">
-    <div class="logo">
-        <a href='/gallery'><img src="assets/img/logo.png" class="logo_img"></a>
-    </div>
-    <ul class="menu_list">
-        <li><a href="/about" id="menu">About</a></li>
-        <li>Join</li>
-        <li><a href="/login" id="menu">Login</a></li>
-    </ul>
-</div>
 <div class="hr"></div>
 <div class='form' style="text-align:center;">
 <center>
@@ -18,7 +7,6 @@
     <small class="forwhoRegister">Help kids around the world and be recognized! Sharing Dreams artists must have 13 years old or above and less than 18 years old.</small>
 
     <%= form_for @artist do |f| %>
-
         <label>
             <%= f.text_field :username, id: "usernameLogin", placeholder: "Create a username" %>
             <%= error_field @artist, :username %>

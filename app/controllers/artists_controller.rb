@@ -50,7 +50,7 @@ class ArtistsController < ApplicationController
     end
 
     def artist
-        @artist ||= Artist.friendlyfind(params[:id])
+        @artist ||= Artist.friendly.find(params[:id])
     end
 
 end

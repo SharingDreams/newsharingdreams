@@ -25,6 +25,19 @@ class Artist < ActiveRecord::Base
 
     friendly_id :username, use: [:slugged, :history]
 
+    before_create do |artist| 
+        artist.confirmation_token = SecureRandom.urlsafe_base64
+    end
+
+    def confirm!
+        return if confirmed_at.present?
+
+        self.confirmed_at = Time.current
+        self.confirmation_token = ''
+
+        save!
+    end
+
     def date_of_birthday
         if self.birthday
             begin

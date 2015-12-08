@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206022626) do
+ActiveRecord::Schema.define(version: 20151208210229) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "username"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20151206022626) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "slug"
+    t.datetime "confirmed_at"
+    t.string   "confirmation_token"
   end
 
   add_index "artists", ["slug"], name: "index_artists_on_slug", unique: true

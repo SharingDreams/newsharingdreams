@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     helper_method :current_artist, :artist_signed_in?
 
     def require_authentication_artist
-        unless  artist_signed_in?
+        unless artist_signed_in?
             redirect_to new_artist_sessions_path, alert: "Deve estar logado!"
         end
     end

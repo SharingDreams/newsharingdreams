@@ -11,6 +11,7 @@ class ArtistsController < ApplicationController
 
     def create
         @artist = Artist.new(artist_params)
+        Signup.confirm_email(@artist).deliver
 
         if @artist.save
             redirect_to @artist, notice: "Artista cadastrado com sucesso!"

@@ -1,0 +1,27 @@
+<div style='backgorund:#fff; width:640px;'>
+	<div style='width:610px; height:75px; background-color:#e3e3e3; padding-top:30px; padding-left:30px;'>
+		<img src='http://sharingdreams.co/assets/img/logo.png'>
+	</div>
+	<center>
+		<h1>
+			Welcome to Sharing Dreams \o/
+		</h1>
+	</center>
+	<br>
+	<br>
+	<p style='color:#484747; margin-left:35px;'>
+		Hello <%= @artist.username %>!<br>
+	 	Thank you for signing up in Sharing Dreams.<br>
+     	Now you can help us to make a difference in the world :)<br>
+		<br>
+		Por favor, confirme seu email<br>
+		<br>
+
+		<%= link_to @confirmation_link, @confirmation_link %>
+
+     	<br><br>
+     	Let's make some arts!<br><br>
+     	Have a nice day,
+     	<a href='www.sharingdreams.co'>Sharing Dreams</a>
+    </p>
+</div>

@@ -2,7 +2,6 @@ class ArtistsController < ApplicationController
 
     before_action :can_change, only: [:edit, :update]
 
-    before_action :require_authentication_artist, only: [:show]
     before_action :require_no_authentication_artist, only: [:new, :create]
 
     def new
@@ -22,6 +21,16 @@ class ArtistsController < ApplicationController
 
     def show
         @artist = Artist.friendly.find(params[:id])
+
+        if params[:q].blank?
+            @artist = Artist.friendly.find(params[:id])
+            @artist_arts = artist.arts.all.order("created_at DESC")
+        else
+            @search = params[:q]
+            @artist = Artist.friendly.find(params[:id])
+            arts_searched = artist.arts.search(@search)
+            @artist_arts = arts_searched.all.order("created_at DESC").page(params[:page]).per(9)
+        end
     end
 
     def edit
@@ -53,5 +62,4 @@ class ArtistsController < ApplicationController
     def artist
         @artist ||= Artist.friendly.find(params[:id])
     end
-
 end

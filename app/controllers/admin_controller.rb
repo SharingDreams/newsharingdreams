@@ -1,5 +1,4 @@
 class AdminController < ApplicationController
-
 	def new
 		@username = params[:username]
 		@pass = params[:pass]
@@ -14,5 +13,4 @@ class AdminController < ApplicationController
 	def index
 		@arts = Art.all.order("created_at DESC").where(approved: 0)
 	end
-
 end

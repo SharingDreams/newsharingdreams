@@ -1,5 +1,5 @@
 <center>
-    <%= form_tag artist_arts_path, method: :get do %>
+    <%= form_tag artist_path, method: :get do %>
         <%= text_field_tag :q, @search, placeholder: "Ache alguma arte!", id: "search" %>
         <%= button_tag(type: 'submit', class: "search-button-after") %>
     <% end %>

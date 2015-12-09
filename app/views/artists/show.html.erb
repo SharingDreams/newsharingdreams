@@ -1,10 +1,51 @@
-<h3>Artista: <%= @artist.username %></h3>
+<style>
+	.capa {
+		width:100%;
+		background-color:#eee;
+		text-align:center;
+		display:inline-block;
+		margin-top:-2px;
+	}
+	.about-me{
+		font-size:12px;
+		font-style:italic;
+		font-family: Helvetica, Arial, 'lucida grande',tahoma,verdana,arial,sans-serif;
+		padding-bottom:20px;
+		text-align:center;
+	}
+	.city{
+		font-size:15px;
+	}
+	@media(max-width: 329px){
+		ul.menu_list{
+			margin-left:-60px;
+		}
+		.logo_img{
+			margin-left:0px !important;
+		}
+	}
+</style>
 
-<p>País: <%= @artist.country %></p>
+<div class="hr"></div>
+<div class="capa">
+	<a href="#">
+		<img class="img_conta" src='/assets/fotos_perfil/' width="150px" height="150px">	
+	</a>
+	<div class="txtg" style="margin-top:20px;"><%= @artist.username %></div>
+	<div class="city"><%= @artist.country %></div>
+		<p class="about-me">
+			<%= @artist.about %>
+		</p>
+	</div>
 
-<p><%= @artist.about %></p>
-
-<p>
-    <%= link_to "Editar perfil", edit_artist_path(@artist) %>|
-    <%= link_to "Home", root_path %>
-</p>
+	<div class="hr"></div>
+				
+	<div class="gallery">
+		<div style="height:35px;"></div>
+		<center>
+			<div class="searchLabel" style="margin-top:20px;">My arts</div>
+		</center>
+		<br> 
+		<%= render 'galeria' %>       
+	</div>	
+	<div style="height:50px;"></div>

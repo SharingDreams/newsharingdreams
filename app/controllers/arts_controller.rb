@@ -28,8 +28,8 @@ class ArtsController < ApplicationController
 
     def show
         @art = Art.friendly.find(params[:id])
-        artist = Artist.friendly.find(@art.artist)
-        @artist_arts = artist.arts.limit(3).order("created_at DESC").where.not(id: @art.id)
+        @artist = Artist.friendly.find(@art.artist)
+        @artist_arts = @artist.arts.limit(3).order("created_at DESC").where.not(id: @art.id).where(approved: 1)
     end
 
     def edit

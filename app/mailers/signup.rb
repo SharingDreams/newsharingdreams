@@ -5,7 +5,7 @@ class Signup < ActionMailer::Base
 	def confirm_email(artist)
 		@artist = artist
 		
-		@confirmation_link = confimation_url({
+		@confirmation_link = confirmation_url({
 			token: @artist.confirmation_token
 		})
 

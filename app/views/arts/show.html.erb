@@ -40,7 +40,9 @@
 <div style="height:20px;"></div>
 
 <div class="info_art">
-	<a href='/conta.php?user=<?php echo $usuario_artista; ?>'><img src="/assets/img/sem-foto.png" width="60px" height="60px" class="author-image"></a>
+	<a href='/conta.php?user=<?php echo $usuario_artista; ?>'>
+        <%= image_tag(@artist.photo.url(:medium), size: "60x60", class: "author-image") %>
+    </a>
 
 	<div class="art_name">
         <%= @art.title %>

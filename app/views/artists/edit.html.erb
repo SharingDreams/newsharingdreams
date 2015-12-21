@@ -26,7 +26,7 @@
 <center>
     <div style="height:30px;"></div>
 
-    <%= form_for @artist do |f| %>
+    <%= form_for @artist, :html => { :multipart => true }  do |f| %>
         <label>
             <%= f.text_field :username, id: "usernameLogin" %>
             <%= error_field @artist, :username %>
@@ -37,10 +37,7 @@
             <%= error_field @artist, :email %>
         </label>
 
-        <label>
-            <%= f.text_field :birthday, class: "datepicker", id: "usernameLogin", placeholder: "Birthday: mm/dd/yyyy" %>
-            <%= error_field @artist, :birthday %>
-        </label>
+        <%= f.file_field :photo %>
 
         <label>
             <%= f.text_area :about, placeholder: "Tell us about you! (optional)" %>

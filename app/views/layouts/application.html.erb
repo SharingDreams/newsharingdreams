@@ -27,6 +27,11 @@
                     <li><%= link_to "Logout", artist_sessions_path, method: "delete" %></li>
                     <li><%= link_to "Minhas artes", artist_arts_path(current_artist) %></li>
                     <li><%= link_to "Nova arte", new_art_path %></li>
+                    <li>
+                        <a href="#">
+                            <%= image_tag(current_artist.photo.url(:medium), size: "50x50", class: 'perfil_img_menu', id: "img-ok", :style => "-webkit-border-radius:500; -moz-border-radius: 500px; border-radius: 500px; float:right; margin-top:-20px;") %>
+                      </a>
+                    </li>
                 </ul>
             <% else %>
                 <ul class="menu_list" id='menu-margin'>

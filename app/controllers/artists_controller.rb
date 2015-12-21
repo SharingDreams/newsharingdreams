@@ -10,9 +10,9 @@ class ArtistsController < ApplicationController
 
     def create
         @artist = Artist.new(artist_params)
-        Signup.confirm_email(@artist).deliver
 
         if @artist.save
+            Signup.confirm_email(@artist).deliver
             redirect_to @artist, notice: "Artista cadastrado com sucesso!"
         else
             render action: :new
@@ -50,7 +50,7 @@ class ArtistsController < ApplicationController
     private
 
     def artist_params
-        params.require(:artist).permit(:username, :email, :country, :about, :birthday, :password, :password_confirmation)
+        params.require(:artist).permit(:username, :email, :country, :about, :birthday, :password, :password_confirmation, :photo)
     end
 
     def can_change

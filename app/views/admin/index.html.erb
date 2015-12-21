@@ -1,9 +1,5 @@
 <% if @arts.count == 0 %>
-    <% if params[:q].blank? %>
-        <h3>Não possuímos nenhuma arte até o momento!</h3>
-    <% else %>
-        <h3>Não achamos nenhuma arte com o termo de pesquisa!</h3>
-    <% end %>
+    <h3>Não achamos nenhuma arte com o termo de pesquisa!</h3>
 <% else %>
 	<center>
 	    <% @arts.each do |art| %>

@@ -29,7 +29,7 @@
 <div class="hr"></div>
 <div class="capa">
 	<a href="#">
-		<img class="img_conta" src='/assets/fotos_perfil/' width="150px" height="150px">	
+		<%= image_tag(@artist.photo.url(:medium), size: "150x150", class: "img_conta") %>
 	</a>
 	<div class="txtg" style="margin-top:20px;"><%= @artist.username %></div>
 	<div class="city"><%= @artist.country %></div>

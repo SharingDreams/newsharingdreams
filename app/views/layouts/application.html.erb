@@ -29,7 +29,11 @@
                     <li><%= link_to "Nova arte", new_art_path %></li>
                     <li>
                         <a href="#">
-                            <%= image_tag(current_artist.photo.url(:medium), size: "50x50", class: 'perfil_img_menu', id: "img-ok", :style => "-webkit-border-radius:500; -moz-border-radius: 500px; border-radius: 500px; float:right; margin-top:-20px;") %>
+                            <% if current_artist.photo.present? %>
+                                <%= image_tag(current_artist.photo.url(:medium), size: "50x50", class: 'perfil_img_menu', id: "img-ok", :style => "-webkit-border-radius:500; -moz-border-radius: 500px; border-radius: 500px; float:right; margin-top:-20px;") %>
+                            <% else %>
+                                <%= image_tag("sem-foto.png", size: "50x50", class: 'perfil_img_menu', id: "img-ok", :style => "-webkit-border-radius:500; -moz-border-radius: 500px; border-radius: 500px; float:right; margin-top:-20px;") %>
+                            <% end %>
                       </a>
                     </li>
                 </ul>

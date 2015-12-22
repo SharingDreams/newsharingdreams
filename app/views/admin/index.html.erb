@@ -3,7 +3,12 @@
 <% else %>
 	<center>
 	    <% @arts.each do |art| %>
-	    	<%= image_tag art.image.url(:medium), class: "art_img_src" %>
+	    	<center>
+	    		<%= image_tag art.image.url(:medium), class: "art_img_src" %>
+	    		<%= check_box_tag 'accept' %>
+	    		<%= label_tag 'accept' %>
+	    	</center>
+	    	<br>
 	    <% end %>
 	</center>
 <% end %>

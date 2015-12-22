@@ -41,7 +41,11 @@
 
 <div class="info_art">
 	<a href='/conta.php?user=<?php echo $usuario_artista; ?>'>
-        <%= image_tag(@artist.photo.url(:medium), size: "60x60", class: "author-image") %>
+        <% if @artist.photo.present? %>
+            <%= image_tag(@artist.photo.url(:medium), size: "60x60", class: "author-image") %>
+        <% else %>
+            <%= image_tag("sem-foto.png", size: "60x60", class: "author-image") %>
+        <% end %>
     </a>
 
 	<div class="art_name">

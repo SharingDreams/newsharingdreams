@@ -29,7 +29,11 @@
 <div class="hr"></div>
 <div class="capa">
 	<a href="#">
-		<%= image_tag(@artist.photo.url(:medium), size: "150x150", class: "img_conta") %>
+		<% if @artist.photo.present? %>
+			<%= image_tag(@artist.photo.url(:medium), size: "150x150", class: "img_conta") %>
+		<% else %>
+			<%= image_tag("sem-foto.png", size: "150x150", class: "img_conta") %>
+		<% end %>
 	</a>
 	<div class="txtg" style="margin-top:20px;"><%= @artist.username %></div>
 	<div class="city"><%= @artist.country %></div>

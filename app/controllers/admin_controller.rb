@@ -1,3 +1,5 @@
+require "colorize"
+
 class AdminController < ApplicationController
 	def new
 		@username = params[:username]
@@ -22,4 +24,16 @@ class AdminController < ApplicationController
 
 		@arts = Art.all.order("created_at DESC").where(approved: 0)
 	end
+
+	def accept_or_not
+		if params[:accept] != nil
+			params[:accept].each do |key, value|
+				puts value
+			end
+		end
+
+		redirect_to admin_index_path
+	end
+
+	private
 end

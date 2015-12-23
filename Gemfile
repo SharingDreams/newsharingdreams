@@ -36,6 +36,8 @@ gem 'jquery-ui-rails'
 
 gem "paperclip", "~> 4.3"
 
+gem "colorize"
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

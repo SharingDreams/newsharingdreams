@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
     resources :admin
 
+    post "admin/accept_or_not", to: "admin#accept_or_not"
+
     resource :confirmation, only: [:show]
 
   # The priority is based upon order of creation: first created -> highest priority.

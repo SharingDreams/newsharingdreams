@@ -2,13 +2,19 @@
     <h3>Não achamos nenhuma arte com o termo de pesquisa!</h3>
 <% else %>
 	<center>
-	    <% @arts.each do |art| %>
-	    	<center>
-	    		<%= image_tag art.image.url(:medium), class: "art_img_src" %>
-	    		<%= check_box_tag 'accept' %>
-	    		<%= label_tag 'accept' %>
-	    	</center>
-	    	<br>
-	    <% end %>
+		<%= form_tag ("/admin/accept_or_not"), method: :post do %>
+		    <% @arts.each do |art| %>
+		    	<center>
+		    		<%= image_tag art.image.url(:medium), class: "art_img_src" %>
+
+		    		<%= check_box_tag "accept[#{art.id}]", value="#{art.id}" %>
+		    		<%= label_tag "accept[#{art.id}]", "Aceitar" %>
+		    	</center>
+		    	<br>
+		    <% end %>
+
+		    <%= submit_tag "Pronto!" %>
+		<% end %>
 	</center>
 <% end %>
+

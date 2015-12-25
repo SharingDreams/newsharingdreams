@@ -7,8 +7,11 @@
 		    	<center>
 		    		<%= image_tag art.image.url(:medium), class: "art_img_src" %>
 
-		    		<%= check_box_tag "accept[#{art.id}]", value="#{art.id}" %>
-		    		<%= label_tag "accept[#{art.id}]", "Aceitar" %>
+		    		<%= radio_button_tag "accept[#{art.id}]", "aceitar", nil, :id => "aceitar_art_#{art.id}" %>
+		    		<%= label_tag "aceitar_art_#{art.id}", "Aceitar" %>
+
+		    		<%= radio_button_tag "accept[#{art.id}]", "nao_aceitar", nil, :id => "nao_aceitar_art_#{art.id}" %>
+		    		<%= label_tag "nao_aceitar_art_#{art.id}", "Não-aceitar" %>
 		    	</center>
 		    	<br>
 		    <% end %>

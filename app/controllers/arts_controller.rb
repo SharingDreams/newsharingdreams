@@ -1,5 +1,5 @@
 class ArtsController < ApplicationController
-    before_action :require_authentication_artist, only: [:new, :create, :edit, :update, :destroy, :show]
+    before_action :require_authentication_artist, only: [:new, :create, :edit, :update, :destroy]
     before_action :can_edit, only: [:edit, :update]
 
     def index
@@ -34,7 +34,7 @@ class ArtsController < ApplicationController
         end
 
         @artist = Artist.friendly.find(@art.artist)
-        @artist_arts = @artist.arts.limit(3).order("created_at DESC").where.not(id: @art.id).where(approved: 1)
+        @artist_arts = @artist.arts.limit(5).order("created_at DESC").where.not(id: @art.id).where(approved: 1)
     end
 
     def edit

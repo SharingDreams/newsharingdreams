@@ -1,7 +1,6 @@
 <h3>Atualize sua arte!</h3>
 
 <%= form_for @art, html: { multipart: true } do |f| %>
-
     <p>
          <%= f.text_field :title, placeholder: "Titulo" %>
          <%= error_field @art, :title %>

@@ -40,13 +40,11 @@
 <div style="height:20px;"></div>
 
 <div class="info_art">
-	<a href='/conta.php?user=<?php echo $usuario_artista; ?>'>
-        <% if @artist.photo.present? %>
-            <%= image_tag(@artist.photo.url(:medium), size: "60x60", class: "author-image") %>
-        <% else %>
-            <%= image_tag("sem-foto.png", size: "60x60", class: "author-image") %>
-        <% end %>
-    </a>
+    <% if @artist.photo.present? %>
+        <%= link_to(image_tag(@artist.photo.url(:medium), size: "60x60", class: "author-image"), artist_path(@artist)) %>
+    <% else %>
+        <%= link_to(image_tag("sem-foto.png", size: "60x60", class: "author-image"), artist_path(@artist)) %>
+    <% end %>
 
 	<div class="art_name">
         <%= @art.title %>
@@ -57,7 +55,7 @@
     </div>
 
     <div class="amount">
-	    <div class="amount_dollar">
+	    <div class="amount_dollaDeep Purple Perfect Strangersr">
 	        $0
 	    </div>
 	    donated
@@ -66,10 +64,8 @@
 
 	<center>
 		<div class="art">
-			<a href="/artes/<?php echo $arte['nome']; ?>" data-lightbox="image-1" data-title="">
-	            <div class="full_art_all">
-	            </div>
-	        </a>
+
+            <%= link_to(content_tag(:div, nil, class: "full_art_all"), @art.image.url, :data => { :lightbox => "image-1", :title => "" }) %>
 
 	        <div class="about_donate">
                 <div class="why">
@@ -89,9 +85,9 @@
         <div class="more_of">
             <% if @artist_arts.count == 0 %>
             <% else %>
-            <br><br>More of <%= @art.artist.username %><br>
+                <br><br>More of <%= @art.artist.username %><br>
 		          <% @artist_arts.each do |art| %>
-                        <%= image_tag art.image.url(:medium), class: "more_of_art" %>
+                        <%= link_to(image_tag(art.image.url(:medium), class: "more_of_art"), art_path(art)) %>
                     <% end %>
             <% end %>
         </div>

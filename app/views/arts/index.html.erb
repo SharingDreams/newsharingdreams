@@ -4,7 +4,10 @@
     <center>
         <%= form_tag arts_path, method: :get do %>
             <%= text_field_tag :q, @search, placeholder: "Ache alguma arte!", id: "search" %>
-            <%= button_tag(type: 'submit', class: "search-button-after") %><%= button_tag(type: 'submit', class: "search-button-after") %>
+            <%= 
+                button_tag(type: 'submit', class: "search-button-after") do
+                end
+            %>
         <% end %>
     </center>
 </form>
@@ -21,32 +24,21 @@
             <% @arts.each do |art| %>
                 <li align="center" class="art_li">
                     <div class="view view-fifth">
-                        <a href="/art/<?php echo $arte_nome_id; ?>/<?php echo $arte['id']; ?>0">
-                            <%= image_tag art.image.url(:medium), class: "art_img_src" %>
-                        </a>
+                        <%= link_to(image_tag(art.image.url(:medium), class: "art_img_src"), art_path(art)) %>
 
                         <div class="mask">
                             <center>
                                 <br>Did you like it?
                                 <br>
-                                <a href="" style="margin-top:15px;" class="donate">
-                                    See more
-                                </a>
+                                <%= link_to("See more", art_path(art), style: "margin-top:15px;", class: "donate") %>
                                 <div style="height:5px;"></div>
                             </center>
 
-                            <a href=''><img src="assets/img/sem-foto.png" class="img-author" style="position:absolute; width:41px; height:41px;"></a>
+                            <%= link_to(image_tag(art.artist.photo.url(:medium), size: "41x41", class: 'img-author', style: "position:absolute;"), artist_path(art.artist)) %>
 
-                            <a href=''>
-                                <p class="name-art"  style="position:absolute;">
-                                    "<%= art.title %>"
-                                </p>
-                            </a>
-                            <a href=''>
-                                <p class="name-author"  style="position:absolute;">
-                                    Nome autor
-                                </p>
-                            </a>
+                            <%= link_to(content_tag(:p, "\"#{art.title}\"", class: "name-art", style: "position:absolute;"), art_path(art)) %>
+
+                            <%= link_to(content_tag(:p, "Por: #{art.artist.username}", class: "name-author", style: "position:absolute;"), artist_path(art.artist)) %>
                         </div>
                     </div>
                 </li>

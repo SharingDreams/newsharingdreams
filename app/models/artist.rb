@@ -6,7 +6,7 @@ class Artist < ActiveRecord::Base
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     VALID_BIRTHDAY_REGEX = /[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}/
 
-    validates_presence_of :username, :email, :country, :birthday
+    validates_presence_of :username, :email, :country, :birthday, :full_name
     validates_presence_of :about, allow_blank: true
 
     validates_length_of :username, minimum: 2
@@ -17,7 +17,7 @@ class Artist < ActiveRecord::Base
     validates_uniqueness_of :username
     validates_uniqueness_of :email
 
-    validates :password, presence: true
+    validates :password, :presence => true, :confirmation => true, length: {minimum: 4}, :if => :password
 
     has_secure_password
 
@@ -65,4 +65,11 @@ class Artist < ActiveRecord::Base
         end
     end
 
+    def custom_update_attributes(params)
+        if params[:password].blank?
+            params.delete :password
+            params.delete :password_confirmation
+            update_attributes params
+        end
+  end
 end

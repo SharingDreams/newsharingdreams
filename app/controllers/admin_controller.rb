@@ -1,11 +1,12 @@
 require "colorize"
 
 class AdminController < ApplicationController
-	def new
-		@username = params[:username]
-		@pass = params[:password]
 
-		if @username == "leo" and @pass == "leo"
+	user = %w{LeoNava gu1vr Thor99 JoaoEscudero}
+	pass = %w{LeCacv547?) 47xo2um2 loYxPhilipeto 47xo2um2}
+
+	def new
+		if verify_data(params[:username], params[:password])
 			cookies[:admin] = { 
 				:value => "adminlollolololol", 
 				:expires => 1.hour.from_now 
@@ -45,5 +46,19 @@ class AdminController < ApplicationController
 		elsif aceitar_ou_nao == "nao_aceitar"
 			Art.find(id).destroy
 		end
+	end
+
+	def verify_data(username, password)
+		if username == "LeoNava" && password = "LeCacv547?)"
+			true
+		elsif username == "gu1vr" && password = "47xo2um2"
+			true
+		elsif username == "Thor99" && password = "loYxPhilipeto"
+			true
+		elsif username == "JoaoEscudero" && password = "47xo2um2"
+			true
+		else
+			false
+		end		
 	end
 end

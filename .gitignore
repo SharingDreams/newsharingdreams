@@ -12,6 +12,8 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
+/app/controllers/admin_controller.rb
+
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep

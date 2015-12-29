@@ -13,6 +13,11 @@
         </label>
 
         <label>
+            <%= f.text_field :full_name, id: "usernameLogin", placeholder: "What's your name?" %>
+            <%= error_field @artist, :full_name %>
+        </label>
+
+        <label>
             <%= f.text_field :email, placeholder: "Type here your email", id: "usernameLogin" %>
             <%= error_field @artist, :email %>
         </label>

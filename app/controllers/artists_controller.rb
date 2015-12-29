@@ -40,7 +40,7 @@ class ArtistsController < ApplicationController
     def update
         @artist = Artist.friendly.find(params[:id])
 
-        if @artist.update(artist_params)
+        if @artist.custom_update_attributes(artist_params)
             redirect_to @artist, notice: "Artista editado com sucesso!"
         else
             render action: :edit
@@ -50,7 +50,7 @@ class ArtistsController < ApplicationController
     private
 
     def artist_params
-        params.require(:artist).permit(:username, :email, :country, :about, :birthday, :password, :password_confirmation, :photo)
+        params.require(:artist).permit(:username, :full_name, :email, :country, :about, :birthday, :password, :password_confirmation, :photo)
     end
 
     def can_change

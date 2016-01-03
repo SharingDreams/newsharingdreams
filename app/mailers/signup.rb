@@ -1,6 +1,6 @@
 class Signup < ActionMailer::Base
 
-	default from: 'nao-responda@sharingdreams.co'
+	default from: 'novasenha@sharingdreams.co'
 
 	def confirm_email(artist)
 		@artist = artist

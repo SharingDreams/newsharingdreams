@@ -28,7 +28,7 @@ class Artist < ActiveRecord::Base
 
     friendly_id :username, use: [:slugged, :history]
 
-    before_create do |artist| 
+    before_create do |artist|
         artist.confirmation_token = SecureRandom.urlsafe_base64
     end
 
@@ -72,4 +72,19 @@ class Artist < ActiveRecord::Base
             update_attributes params
         end
   end
+
+    def send_password_reset
+        generate_token(:password_reset_token)
+        self.password_reset_sent_at = Time.current
+
+        save
+
+        PasswordResetMailer.password_reset(self).deliver
+    end
+
+    def generate_token(column)
+        begin
+            self[column] = SecureRandom.urlsafe_base64
+        end while Artist.exists?(column => self[column])
+    end
 end

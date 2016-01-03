@@ -1,0 +1,18 @@
+<div class="hr"></div>
+<center>
+    <div class="txtg" style="margin-top:20px;">Forgot username or password</div>
+
+    <%= form_for @artist, url: password_reset_path(params[:id]) do |f| %>
+        <label>
+            <%= f.password_field :password, id: "passwordLogin senha", placeholder: "Type here your new password" %>
+            <%= error_field @artist, :password %>
+        </label>
+
+        <label>
+            <%= f.password_field :password_confirmation, id: "passwordLogin senha", placeholder: "Type here your new password again" %>
+            <%= error_field @artist, :password_confirmation %>
+        </label>
+
+        <div><%= f.submit "Update Password" %></div>
+    <% end %>
+</center>

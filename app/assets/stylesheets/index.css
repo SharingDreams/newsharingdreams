@@ -174,7 +174,7 @@
                 margin-bottom:15px;
                 margin-left:50px;
             }
-            
+
             .name-author {
                 bottom:0;
                 margin-bottom:-5px;
@@ -183,7 +183,7 @@
             input:focus, input:focus, input:hover{
                 outline:0;
             }
-        
+
 
             input#search{
                 height: 37px;
@@ -384,12 +384,13 @@
             }
 
             input#usernameLogin,
+            input#usernameLoginBirth,
             input#passwordLogin,
             textarea{
                 width: 377px;
                 font-size: 18px;
                 padding: 8px 0px;
-                text-align:center;  
+                text-align:center;
                 font-family: 'Raleway', sans-serif;
                 margin-top:20px;
                 background:#eaeaea;
@@ -402,6 +403,7 @@
                 transition: all 0.2s ease;
             }
             input#usernameLogin:focus,
+            input#usernameLoginBirth:focus,
             input#passwordLogin:focus, textarea:focus{
                 outline: 0;
                 border:2px solid #989898;
@@ -458,7 +460,7 @@
                 padding-bottom:25px;
                 width: 760px;
             }
-            
+
             p.about_team_member_name{
                 margin:0;
                 margin-top:5px;
@@ -483,7 +485,7 @@
             }
 
             .editable{
-                background-color:#f0f0f0; 
+                background-color:#f0f0f0;
                 width:500px;
                 height:250px;
                 overflow:auto;
@@ -525,7 +527,7 @@
             .bold{
                 font-weight: bold;
             }
-            
+
             a.gotoglr{
                 color:#484848;
                 text-decoration:none;
@@ -542,10 +544,10 @@
                 outline:0;
             }
             .img_conta{
-                margin-top: 30px; 
-                -webkit-border-radius:500px; 
-                -moz-border-radius: 500px; 
-                border-radius: 500px; 
+                margin-top: 30px;
+                -webkit-border-radius:500px;
+                -moz-border-radius: 500px;
+                border-radius: 500px;
             }
             .city{
                 text-align: center;
@@ -571,7 +573,7 @@
 				background:black;
 				color:white;
 			}
-            
+
 
 
             @media(min-width:1000px){
@@ -610,7 +612,7 @@
                     -o-transition: all 0.3s ease-in-out;
                     -ms-transition: all 0.3s ease-in-out;
                     transition: all 0.3s ease-in-out;
-                    filter: blur(0px); 
+                    filter: blur(0px);
                     -webkit-filter: blur(0px);
                     -moz-filter: blur(0px);
                     -o-filter: blur(0px);
@@ -659,7 +661,7 @@
                     -o-transform: translateX(0px);
                     -ms-transform: translateX(0px);
                     transform: translateX(0px);
-                    filter: blur(3px); 
+                    filter: blur(3px);
                     -webkit-filter: blur(3px);
                     -moz-filter: blur(3px);
                     -o-filter: blur(3px);
@@ -672,7 +674,7 @@
                     -o-transform: translateX(0px);
                     -ms-transform: translateX(0px);
                     transform: translateX(0px);
-                    filter: blur(0px); 
+                    filter: blur(0px);
                     -webkit-filter: blur(0px);
                     -moz-filter: blur(0px);
                     -o-filter: blur(0px);
@@ -827,12 +829,13 @@
                     background: #e5e5e5;
                 }
                 input#usernameLogin,
-                input#passwordLogin, 
+                input#usernameLoginBirth,
+                input#passwordLogin,
                 textarea{
                     width: 270px;
                     font-size: 18px;
                     padding: 8px 0px;
-                    text-align:center;  
+                    text-align:center;
                     font-family: 'Raleway', sans-serif;
                     margin-top:20px;
                     background:#eaeaea;
@@ -845,6 +848,7 @@
                     transition: all 0.2s ease;
                 }
                 input#usernameLogin:focus,
+                input#usernameLoginBirth:focus,
                 input#passwordLogin:focus, textarea:focus{
                     outline: 0;
                     border:2px solid #989898;
@@ -1093,12 +1097,13 @@
                     width:310px;
                 }
                 input#usernameLogin,
+                input#usernameLoginBirth,
                 input#passwordLogin,
                 textarea{
                     width: 290px;
                     font-size: 18px;
                     padding: 8px 0px;
-                    text-align:center;  
+                    text-align:center;
                     font-family: 'Raleway', sans-serif;
                     margin-top:20px;
                     background:#eaeaea;
@@ -1111,6 +1116,7 @@
                     transition: all 0.2s ease;
                 }
                 input#usernameLogin:focus,
+                input#usernameLoginBirth:focus,
                 input#passwordLogin:focus, textarea:focus{
                     outline: 0;
                     border:2px solid #989898;
@@ -1370,12 +1376,13 @@
                     width:370px;
                 }
                 input#usernameLogin,
+                input#usernameLoginBirth,
                 input#passwordLogin,
                 textarea{
                     width: 350px;
                     font-size: 18px;
                     padding: 8px 0px;
-                    text-align:center;  
+                    text-align:center;
                     font-family: 'Raleway', sans-serif;
                     margin-top:20px;
                     background:#eaeaea;
@@ -1388,6 +1395,7 @@
                     transition: all 0.2s ease;
                 }
                 input#usernameLogin:focus,
+                input#usernameLoginBirth:focus,
                 input#passwordLogin:focus, textarea:focus{
                     outline: 0;
                     border:2px solid #989898;
@@ -1544,7 +1552,7 @@
                     display:inline;
                 }
             }
-            
+
 
 
 
@@ -1619,12 +1627,13 @@
                     width:370px;
                 }
                 input#usernameLogin,
+                input#usernameLoginBirth,
                 input#passwordLogin,
                 textarea{
                     width: 350px;
                     font-size: 18px;
                     padding: 8px 0px;
-                    text-align:center;  
+                    text-align:center;
                     font-family: 'Raleway', sans-serif;
                     margin-top:20px;
                     background:#eaeaea;
@@ -1637,6 +1646,7 @@
                     transition: all 0.2s ease;
                 }
                 input#usernameLogin:focus,
+                input#usernameLoginBirth:focus,
                 input#passwordLogin:focus, textarea:focus{
                     outline: 0;
                     border:2px solid #989898;
@@ -1651,4 +1661,3 @@
                 }
                 .info_art{
                     padding-top:10px;
-       

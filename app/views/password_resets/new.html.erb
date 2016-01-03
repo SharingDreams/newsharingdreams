@@ -23,9 +23,9 @@
 	<div class="txtg" style="margin-top:20px;">Forgot username or password</div>
 	<%= form_tag password_resets_path, :method => :post do %>
 		<fieldset class="fieldLogin">
-    		<%= text_field_tag :email, params[:email], id: "usernameLogin", placeholder: "Your email" %>
+    		<%= text_field_tag :username_or_email, params[:username_or_email], id: "usernameLogin", placeholder: "Your email" %>
   		</fieldset>
-  	
+
   		<%= submit_tag "Reset Password" %>
 	<% end %>
 </center>

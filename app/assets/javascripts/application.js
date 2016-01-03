@@ -15,4 +15,3 @@
 //= require jquery-ui/datepicker
 //= require materialize-sprockets
 //= require_tree .
-

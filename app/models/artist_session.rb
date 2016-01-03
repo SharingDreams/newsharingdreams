@@ -1,18 +1,18 @@
 class ArtistSession
     include ActiveModel::Model
 
-    attr_accessor :username, :password
+    attr_accessor :username_or_email, :password
 
-    validates_presence_of :username, :password
+    validates_presence_of :username_or_email, :password
 
     def initialize(session, attributes={})
         @session = session
-        @username = attributes[:username]
+        @username_or_email = attributes[:username_or_email]
         @password = attributes[:password]
     end
 
     def authenticate!
-        artist = Artist.authenticate(@username, @password)
+        artist = Artist.authenticate(@username_or_email, @password)
 
         if artist.present?
             store(artist)

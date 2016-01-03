@@ -1,7 +1,7 @@
 class PasswordResetsController < ApplicationController
 
 	def create
-		artist = Artist.find_by(email: params[:email])
+		artist = Artist.find_by(email: params[:username_or_email]) || Artist.find_by(username: params[:username_or_email])
 		artist.send_password_reset if artist
 
 		redirect_to root_url, :notice => "Email enviado para você!"
@@ -9,6 +9,10 @@ class PasswordResetsController < ApplicationController
 
 	def edit
 		@artist = Artist.find_by(password_reset_token: params[:id])
+
+		unless @artist
+			redirect_to root_url
+		end
 	end
 
 	def update

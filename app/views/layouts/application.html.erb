@@ -6,6 +6,12 @@
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
         <%= csrf_meta_tags %>
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+              $('.birthday-date').datepicker({format: 'dd-mm-yyyy'});
+            });
+        </script>
     </head>
 
     <body>
